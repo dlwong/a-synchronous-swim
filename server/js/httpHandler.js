@@ -13,8 +13,12 @@ module.exports.initialize = (queue) => {
 };
 
 module.exports.router = (req, res, next = ()=>{}) => {
+  // console.log("request:*******************",req)
   console.log('Serving request type ' + req.method + ' for url ' + req.url);
+  
   res.writeHead(200, headers);
-  res.end();
+  var swimArr = ['up','down','left','right']
+  
+  res.end(swimArr[Math.floor(Math.random()*4)]);
   next(); // invoke next() at the end of a request to help with testing!
 };
